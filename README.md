@@ -1,72 +1,113 @@
 # AI-driven Data Format Converter (STL to STEP)
 
-This project is an AI-driven engineering assistant that converts STL mesh models into FEATURE-BASED STEP files. It uses a **Hybrid Architecture**:
-- **Frontend**: React + TypeScript (Modern UI)
-- **Backend**: Python FastAPI (Geometry processing & AI Analysis)
+This project is an advanced engineering assistant that uses Artificial Intelligence to convert 3D STL mesh models into feature-based STEP files. It features a modern web interface and a powerful Python backend.
 
-## 📦 Deployment & Setup Guide (Offline Bundle)
+## 🚀 Quick Start Guide
 
-This guide assumes you have received the complete project package (including `offline_packages` and `node_modules`).
+This guide is designed for everyone, even if you are new to programming! Follow these steps one by one to get the project running.
 
-### 1. Prerequisites
-Ensure the following are installed on your system:
-- **Python 3.10+**: [Download Python](https://www.python.org/downloads/)
-- **Node.js 16+**: [Download Node.js](https://nodejs.org/)
+### 1. Prerequisites (What you need installed)
 
-### 2. Installation Steps
+Before you begin, make sure you have the following installed on your computer:
 
-#### Step A: Unzip and Navigate
-Unzip the project package and open a terminal in the root directory:
-```bash
-cd path/to/project-folder
-```
-
-#### Step B: Backend Setup (Python)
-1.  Create a virtual environment:
-    ```bash
-    python3 -m venv venv
-    ```
-2.  Activate the environment:
-    - **Mac/Linux**: `source venv/bin/activate`
-    - **Windows**: `venv\Scripts\activate`
-3.  Install dependencies (Offline Mode):
-    ```bash
-    # Installs libraries from the local 'offline_packages' folder
-    pip install --no-index --find-links=offline_packages -r requirements.txt
-    ```
-
-#### Step C: Frontend Setup
-*The dependencies are already included in the `node_modules` folder, so no installation is required.*
-
-### 3. Running the Application
-
-You need to run **two separate terminals** (one for Backend, one for Frontend).
-
-#### Terminal 1: Backend API
-```bash
-# Ensure venv is activated
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-uvicorn src.server:app --port 8000 --reload
-```
-*The backend will start at `http://localhost:8000`*
-
-#### Terminal 2: Frontend UI
-```bash
-# Start the development server
-npm run dev
-```
-*The app will open at `http://localhost:5173`. If it doesn't open automatically, visit that link in your browser.*
+*   **Node.js** (for the website interface): [Download Node.js](https://nodejs.org/) (Choose the "LTS" version).
+*   **Python** (for the logic and AI): [Download Python](https://www.python.org/downloads/) (Version 3.10 or newer is recommended).
+*   **Git** (to download this code): [Download Git](https://git-scm.com/downloads).
 
 ---
 
-### Alternative: Online Installation
-If you are cloning from Git or missing the Bundled folders:
-- **Python**: `pip install -r requirements.txt`
-- **Node**: `npm install`
+### 2. Download the Code
 
+Open your terminal (Command Prompt on Windows, Terminal on Mac) and run:
 
-## Features
-- **Upload**: Support for STL files (binary/ASCII).
-- **Physical Analysis**: Precise Volume, Surface Area, and Center of Mass calculations.
-- **Generate**: Robust STEP file generation from Mesh data.
-- **Explain**: Detailed engineering report on geometry and physical properties.
+```bash
+git clone https://github.com/alstonrao/AI-driven-Data-Format-Converter.git
+cd AI-driven-Data-Format-Converter
+```
+
+---
+
+### 3. Setup Backend (The Brains) 🧠
+
+The backend handles the file conversion and AI analysis.
+
+1.  **Create a Virtual Environment** (This keeps the project clean):
+    ```bash
+    # Mac/Linux:
+    python3 -m venv venv
+    
+    # Windows:
+    python -m venv venv
+    ```
+
+2.  **Activate the Environment**:
+    ```bash
+    # Mac/Linux:
+    source venv/bin/activate
+    
+    # Windows:
+    venv\Scripts\activate
+    ```
+    *(You should see `(venv)` appear at the start of your terminal line)*
+
+3.  **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **🔑 Important: Configure Environment Variables (.env)**
+    You need to tell the app your API keys.
+    1.  In the project folder, create a new file named `.env` (no name, just `.env`).
+    2.  Open it with any text editor (Notepad, TextEdit, VS Code).
+    3.  Paste the following content and fill in your details:
+
+    ```env
+    OPENAI_API_KEY=your_actual_api_key_here
+    OPENAI_BASE_URL=https://api.openai.com/v1/
+    OPENAI_MODEL_NAME=gpt-4-turbo
+    ```
+    *(Note: If you have a specific custom model or URL, replace the values above with yours.)*
+
+---
+
+### 4. Setup Frontend (The Interface) 💻
+
+The frontend is the website you see and interact with.
+
+1.  Open a **new** terminal window (keep the backend one open!).
+2.  Navigate to the project folder again.
+3.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+
+---
+
+### 5. Run the Application ▶️
+
+You always need **two terminals** running at the same time:
+
+**Terminal 1: Backend**
+```bash
+# Make sure (venv) is active
+# If not, run: source venv/bin/activate (Mac) or venv\Scripts\activate (Win)
+
+uvicorn src.server:app --port 8000 --reload
+```
+*You will see "Application startup complete".*
+
+**Terminal 2: Frontend**
+```bash
+npm run dev
+```
+*You will see a link like `http://localhost:5173`.*
+
+👉 **Open your browser and go to `http://localhost:5173` to use the app!**
+
+---
+
+### ❓ Troubleshooting
+
+*   **"command not found: python"**: Try using `python3` instead.
+*   **"Module not found" error**: Make sure you activated the virtual environment (`source venv/bin/activate`) before running `pip install` or starting the server.
+*   **Upload failed**: Check your `.env` file to ensure your API Key is correct.
