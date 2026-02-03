@@ -1,0 +1,9 @@
+streamlit
+numpy
+trimesh
+openai
+python-dotenv
+fastapi
+uvicorn
+python-multipart
+scipy
