@@ -2,9 +2,7 @@
 
 This project is an advanced engineering assistant that uses Artificial Intelligence to convert 3D STL mesh models into feature-based STEP files. It features a modern web interface and a powerful Python backend.
 
-## 🚀 Quick Start Guide
-
-This guide is designed for everyone, even if you are new to programming! Follow these steps one by one to get the project running.
+## 🚀 Start Guide
 
 ### 1. Prerequisites (What you need installed)
 
@@ -57,16 +55,16 @@ The backend handles the file conversion and AI analysis.
 
 4.  **🔑 Important: Configure Environment Variables (.env)**
     You need to tell the app your API keys.
+    
     1.  In the project folder, create a new file named `.env` (no name, just `.env`).
     2.  Open it with any text editor (Notepad, TextEdit, VS Code).
     3.  Paste the following content and fill in your details:
-
+    
     ```env
     OPENAI_API_KEY=your_actual_api_key_here
     OPENAI_BASE_URL=https://api.openai.com/v1/
     OPENAI_MODEL_NAME=gpt-4-turbo
     ```
-    *(Note: If you have a specific custom model or URL, replace the values above with yours.)*
 
 ---
 
@@ -77,6 +75,7 @@ The frontend is the website you see and interact with.
 1.  Open a **new** terminal window (keep the backend one open!).
 2.  Navigate to the project folder again.
 3.  **Install Dependencies**:
+    
     ```bash
     npm install
     ```
